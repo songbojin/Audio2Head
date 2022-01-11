@@ -140,7 +140,7 @@ def audio2head(audio_path, img_path, model_path, save_path):
     with open(config_file) as f:
         print('config_file',config_file)
         print('f',f)
-        config = yaml.load(f)
+        config = yaml.load(f,Loader=yaml.FullLoader)
     kp_detector = KPDetector(**config['model_params']['kp_detector_params'],
                              **config['model_params']['common_params'])
     generator = OcclusionAwareGenerator(**config['model_params']['generator_params'],
