@@ -228,8 +228,9 @@ def audio2head(audio_path, img_path, model_path, save_path):
     log_dir = save_path
     if not os.path.exists(os.path.join(log_dir, "temp")):
         os.makedirs(os.path.join(log_dir, "temp"))
-    image_name = os.path.basename(img_path)[:-4]+ "_" + os.path.basename(audio_path)[:-4] + ".mp4"
-
+    #image_name = os.path.basename(img_path)[:-4]+ "_" + os.path.basename(audio_path)[:-4] + ".mp4"
+    image_name = "output.mp4"
+    
     video_path = os.path.join(log_dir, "temp", image_name)
 
     imageio.mimsave(video_path, predictions_gen, fps=25.0)
