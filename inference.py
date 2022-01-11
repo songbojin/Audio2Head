@@ -148,7 +148,7 @@ def audio2head(audio_path, img_path, model_path, save_path):
     kp_detector = kp_detector.cuda()
     generator = generator.cuda()
 
-    opt = argparse.Namespace(**yaml.load(open("./config/parameters.yaml")),Loader=yaml.FullLoader)
+    opt = argparse.Namespace(**yaml.load(open("./config/parameters.yaml"),Loader=yaml.FullLoader))
     audio2kp = AudioModel3D(opt).cuda()
 
     checkpoint  = torch.load(model_path)
