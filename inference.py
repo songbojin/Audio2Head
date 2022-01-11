@@ -138,8 +138,8 @@ def audio2head(audio_path, img_path, model_path, save_path):
 
     config_file = r"./config/vox-256.yaml"
     with open(config_file) as f:
-        print('config_file',config_file)
-        print('f',f)
+        #print('config_file',config_file)
+        #print('f',f)
         config = yaml.load(f,Loader=yaml.FullLoader)
     kp_detector = KPDetector(**config['model_params']['kp_detector_params'],
                              **config['model_params']['common_params'])
@@ -148,7 +148,7 @@ def audio2head(audio_path, img_path, model_path, save_path):
     kp_detector = kp_detector.cuda()
     generator = generator.cuda()
 
-    opt = argparse.Namespace(**yaml.load(open("./config/parameters.yaml")))
+    opt = argparse.Namespace(**yaml.load(open("./config/parameters.yaml")),Loader=yaml.FullLoader)
     audio2kp = AudioModel3D(opt).cuda()
 
     checkpoint  = torch.load(model_path)
